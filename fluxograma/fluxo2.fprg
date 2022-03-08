@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="2.11">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="SAMSUNG"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2022-03-07 11:31:31 "/>
+        <attribute name="created" value="U0FNU1VORztERVNLVE9QLTdURlQ2U1I7MjAyMi0wMy0wNzsiMTE6MjA6NDcgIjsyODIz"/>
+        <attribute name="edited" value="U0FNU1VORztERVNLVE9QLTdURlQ2U1I7MjAyMi0wMy0wNzsiMTE6MzE6MzEgIjsxOzI5MjY="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="valorCompra, pagamento, troco, nota100, nota10, nota1" type="Integer" array="False" size=""/>
+            <assign variable="nota100" expression="0"/>
+            <assign variable="nota10" expression="0"/>
+            <assign variable="nota1" expression="0"/>
+            <output expression="&quot;Informe o valor da compra: &quot;" newline="True"/>
+            <input variable="valorCompra"/>
+            <output expression="&quot;Informe o valor do pagamento: &quot;" newline="True"/>
+            <input variable="pagamento"/>
+            <if expression="pagamento &gt; valorCompra">
+                <then>
+                    <assign variable="troco" expression="pagamento - valorCompra"/>
+                    <while expression="troco &gt;= 100">
+                        <assign variable="nota100" expression="nota100 + 1"/>
+                        <assign variable="troco" expression="troco - 100"/>
+                    </while>
+                    <while expression="troco &gt;= 10">
+                        <assign variable="nota10" expression="nota10 + 1"/>
+                        <assign variable="troco" expression="troco - 10"/>
+                    </while>
+                    <while expression="troco &gt;= 1">
+                        <assign variable="nota1" expression="nota1 + 1"/>
+                        <assign variable="troco" expression="troco - 1"/>
+                    </while>
+                    <output expression="&quot;troco - notas de 100: &quot; &amp; nota100 &amp; &quot; notas de 10: &quot; &amp; nota10 &amp; &quot; notas de 1: &quot; &amp; nota1" newline="True"/>
+                </then>
+                <else>
+                    <output expression="&quot;Pagamento Negado!&quot;" newline="True"/>
+                </else>
+            </if>
+        </body>
+    </function>
+</flowgorithm>
